@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { ImageResponse } from '@vercel/og'
 import type { NextRequest } from 'next/server'
 
@@ -66,6 +68,7 @@ export default async function handler(req: NextRequest) {
             height='28rem' 
             src={repoData.avatar} 
             style={{'borderRadius': '0.5rem'}}
+            alt='avatar'
           />
           <Text variant='title'>{repoData.name}</Text>
           <Text variant='label'>{repoData.visibility}</Text>

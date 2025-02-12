@@ -2,7 +2,7 @@ import * as React from "react"
 import classes from './input.module.css'
 
 export const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+  ({ type, ...props }, ref) => {
     return (
       <input
         type={type}
@@ -13,3 +13,5 @@ export const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"in
     )
   }
 )
+
+Input.displayName = "Input"
