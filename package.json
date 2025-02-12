@@ -21,6 +21,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
+    "turbo": "^2.4.1",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@10.2.0"
 }
