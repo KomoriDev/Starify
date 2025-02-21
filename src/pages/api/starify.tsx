@@ -15,20 +15,6 @@ export const config = {
   runtime: 'edge',
 }
 
-export const [boldFontFile, githubPic, mousePic, starPic] = await Promise.all([
-  fetch(new URL('../../assets/fonts/OpenSans-Bold.ttf', import.meta.url))
-    .then(res => res.arrayBuffer()),
-  
-  fetch(new URL('../../assets/images/github.png', import.meta.url))
-    .then(res => res.arrayBuffer()),
-  
-  fetch(new URL('../../assets/images/mouse.png', import.meta.url))
-    .then(res => res.arrayBuffer()),
-  
-  fetch(new URL('../../assets/images/star.png', import.meta.url))
-    .then(res => res.arrayBuffer())
-]);
-
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
 
@@ -45,7 +31,6 @@ export default async function handler(req: NextRequest) {
   const CHAR_WIDTH = 20
   const elementWidth = (repoData.name.length + repoData.forks.toString().length + repoData.stars.toString().length ) * CHAR_WIDTH
   const totalWidth = BASE_WIDTH + elementWidth
-
 
   return new ImageResponse(
     (
@@ -92,54 +77,12 @@ export default async function handler(req: NextRequest) {
             <Text variant='text'>Starred</Text>
             <Text variant='counter'>{formatNumber(repoData.stars)}</Text>
           </Button>
-
-          <img 
-            width='80px'
-            height='80px'
-            src={`data:image/png;base64,${Buffer.from(githubPic).toString('base64')}`}
-            alt="illustration"
-            style={{
-              position: 'absolute',
-              bottom: '-30px',
-              right: '-55px',
-            }}
-          />
-          <img 
-            width='32px'
-            height='32px'
-            src={`data:image/png;base64,${Buffer.from(mousePic).toString('base64')}`}
-            alt="illustration"
-            style={{
-              position: 'absolute',
-              bottom: '-20px',
-              right: '95px',
-            }}
-          />
-          <img 
-            width='50px'
-            height='24px'
-            src={`data:image/png;base64,${Buffer.from(starPic).toString('base64')}`}
-            alt="illustration"
-            style={{
-              position: 'absolute',
-              bottom: '28px',
-              right: '125px',
-            }}
-          />
         </Section>
       </main>
     ),
     {
       width: totalWidth,
       height: 96,
-      fonts: [
-        {
-          name: 'OpenSans',
-          data: boldFontFile,
-          weight: 700,
-          style: 'normal',
-        },
-      ],
     }
   )
 }
