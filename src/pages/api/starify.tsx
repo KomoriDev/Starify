@@ -71,12 +71,47 @@ export default async function handler(req: NextRequest) {
             <Text variant='counter'>{formatNumber(repoData.forks)}</Text>
           </Button>
 
-
           <Button>
             <Starred />
             <Text variant='text'>Starred</Text>
             <Text variant='counter'>{formatNumber(repoData.stars)}</Text>
           </Button>
+
+          <img 
+            width='80px'
+            height='80px'
+            src='https://raw.githubusercontent.com/KomoriDev/Starify/refs/heads/master/src/assets/images/github.png'
+            alt="illustration"
+            style={{
+              position: 'absolute',
+              bottom: '-30px',
+              right: '-55px',
+            }}
+          />
+
+          <img 
+            width='32px'
+            height='32px'
+            src='https://raw.githubusercontent.com/KomoriDev/Starify/refs/heads/master/src/assets/images/mouse.png'
+            alt="illustration"
+            style={{
+              position: 'absolute',
+              bottom: '-20px',
+              right: '95px',
+            }}
+          />
+
+          <img 
+            width='50px'
+            height='24px'
+            src='https://raw.githubusercontent.com/KomoriDev/Starify/refs/heads/master/src/assets/images/star.png'
+            alt="illustration"
+            style={{
+              position: 'absolute',
+              bottom: '28px',
+              right: '125px',
+            }}
+          />
         </Section>
       </main>
     ),
