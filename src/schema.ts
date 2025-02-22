@@ -35,8 +35,6 @@ export default class GithubRepo {
             )
         }
 
-        console.log('star: ', data.stargazers_count)
-
         return new GithubRepo(
             owner,
             name,
