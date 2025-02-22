@@ -118,6 +118,9 @@ export default async function handler(req: NextRequest) {
     {
       width: totalWidth,
       height: 96,
+      headers: {
+        'Cache-Control': 'max-age=0, s-maxage=60, stale-while-revalidate',
+      }
     }
   )
 }
